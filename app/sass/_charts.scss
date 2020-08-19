@@ -1,0 +1,9 @@
+.charts {
+  > div {
+    padding: 10px;
+    margin-top: -40px;
+    background: $primaryWhite;
+    border-radius: 2px;
+    box-shadow: 0px 0px 24px -9px rgba(0, 0, 0, 0.75);
+  }
+}

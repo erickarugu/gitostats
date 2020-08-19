@@ -1,0 +1,68 @@
+.header {
+  min-height: 80vh;
+  background: linear-gradient(to top, $primaryBlue, $electricPurple);
+
+  @include breakpoint-down(small) {
+    min-height: 100vh;
+  }
+
+  &__image-section {
+    padding: 0.375rem;
+    border-radius: 50%;
+    background: linear-gradient(45deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+    box-shadow: 0rem 0rem 1.5rem -0.5625rem rgba(255, 255, 255, 0.75);
+    transition: background 2s ease-in-out;
+
+    img {
+      width: 9.375rem;
+      height: 9.375rem;
+      border-radius: 50%;
+    }
+  }
+
+  &__name-section {
+    text-align: center;
+    color: $primaryWhite;
+  }
+
+  &__details-section {
+    margin: 1.25rem;
+    color: $primaryWhite;
+    font-weight: 300;
+    font-size: 1rem;
+
+    @include breakpoint-down(small) {
+      flex-direction: column !important;
+    }
+
+    > div {
+      padding: 0.5rem;
+    }
+    :not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__stats-section {
+    .stats {
+      padding: 0.5rem;
+      width: 7.5rem;
+      border-radius: 0.3125rem;
+      background-color: $fashionFuschia;
+      box-shadow: 0rem 0rem 1.5rem -0.5625rem rgba(0, 0, 0, 0.75);
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      @include breakpoint-down(xsmall) {
+        padding: 0.25rem;
+        width: 5.625rem;
+
+        &:not(:last-child) {
+          margin-right: 0.3rem;
+        }
+      }
+    }
+  }
+}

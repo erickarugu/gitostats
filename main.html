@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/img_avatar.png" />
+    <title>My Github Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./dist/styles.css" />
+  </head>
+  <body id="main_entry" class="flex flex-row jc-c al-c">
+    <!-- loader -->
+    <div class="box flex jc-c al-c">
+      <div class="loader-39"></div>
+    </div>
+    <!-- github link -->
+    <div class="github__link">
+      <a href="#" target="_blank" title="GitHub Repository"><img src="./images/github_icon.ico" alt="GitHub Link" /></a>
+    </div>
+    <!-- social links -->
+    <div class="social__links flex flex-col">
+      <a href="#" title="GitHub Account">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="#" title="LinkedIn Account">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="#" title="Twitter Account">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+
+    <div class="input flex">
+      <input type="text" id="github_name" placeholder="Enter Username" />
+      <button id="search__btn" class="button">Search</button>
+    </div>
+    <script src="./app/js/script.js"></script>
+  </body>
+</html>

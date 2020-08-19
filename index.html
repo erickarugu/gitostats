@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/img_avatar.png" />
+    <title>Github Profile</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css" integrity="sha512-SUJFImtiT87gVCOXl3aGC00zfDl6ggYAw5+oheJvRJ8KBXZrr/TMISSdVJ5bBarbQDRC2pR5Kto3xTR0kpZInA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./dist/styles.css" />
+
+    <!-- chart js script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha512-QEiC894KVkN9Tsoi6+mKf8HaCLJvyA6QIRzY5KrfINXYuP9NxdIkRQhGq3BZi0J4I7V5SidGM3XUQ5wFiMDuWg==" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- loader -->
+    <div class="box flex jc-c al-c">
+      <div class="loader-39"></div>
+    </div>
+    <!-- github link -->
+    <div class="github__link">
+      <a href="https://github.com/erickarugu32/gitprofile" target="_blank" title="GitHub Repository"><img src="./images/github_icon.ico" alt="GitHub Link" /></a>
+    </div>
+    <!-- social links -->
+    <div class="social__links flex flex-col">
+      <a href="https://github.com/erickarugu32" title="Eric's GitHub Account">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/eric-karugu-904569145/" title="Eric's LinkedIn Account">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://twitter.com/karugu_eric" title="Eric's Twitter Account">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </div>
+
+    <main>
+      <!-- header section -->
+      <section id="section-header">
+        <div class="header flex flex-col jc-c al-c">
+          <!-- github avatar image -->
+          <div class="header__image-section flex flex-row jc-c al-c">
+            <img id="user_avatar" src="./images/img_avatar.png" alt="Github Avatar Image" />
+          </div>
+
+          <!-- github names -->
+          <div class="header__name-section">
+            <h2 id="user_fullname">John Doe</h2>
+            <p id="user_username">@johndoe</p>
+          </div>
+
+          <!-- personal details -->
+          <div class="header__details-section flex flex-row jc-sa">
+            <div><i class="fas fa-briefcase"></i> <span id="user_work">Freelance</span></div>
+            <div><i class="fas fa-map-marker-alt"></i> <span id="user_location">Nairobi, Kenya</span></div>
+            <div><i class="fa fa-calendar-alt"></i> <span id="user_join-date">March 13, 2020.</span></div>
+          </div>
+
+          <!-- Personal stats -->
+          <div class="header__stats-section flex flex-row jc-sa">
+            <div class="stats flex flex-col al-c jc-sb">
+              <h3 id="user_repos">27</h3>
+              <p>Repositories</p>
+            </div>
+            <div class="stats flex flex-col al-c jc-sb">
+              <h3 id="user_followers">101</h3>
+              <p>Followers</p>
+            </div>
+            <div class="stats flex flex-col al-c jc-sb">
+              <h3 id="user_following">60</h3>
+              <p>Following</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Charts Section -->
+      <section id="section-charts">
+        <div class="charts flex flex-row jc-sa">
+          <div class="charts__bargraph">
+            <canvas id="barChart" width="380" height="300" aria-label="Bar Graph" role="img">Your browser does not support the canvas element.</canvas>
+          </div>
+          <div class="charts__scatterchart">
+            <canvas id="scatterChart" width="380" height="300" aria-label="Pie Chart" role="img">Your browser does not support the canvas element.</canvas>
+          </div>
+          <div class="charts__piechart">
+            <canvas id="pieChart" width="380" height="300" aria-label="Pie Chart" role="img">Your browser does not support the canvas element.</canvas>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <p>
+        Created using <a href="#">Vanilla JS</a>, <a href="#">Chartjs</a>, <a href="#">GitHub API</a> and <i class="fas fa-heart"></i> by
+        <a href="https://erickarugu.com">Eric</a>
+      </p>
+      <p>
+        <small> Inspired by <a href="https://brittanychiang.com/">Brittany Chiang</a>'s - <a href="https://octoprofile.now.sh/">OctoProfile</a> </small>
+      </p>
+      <p><small>&copy; 2020</small></p>
+    </footer>
+    <script src="./app/js/charts.js" type="module"></script>
+    <script src="./app/js/script.js" type="module"></script>
+  </body>
+</html>
