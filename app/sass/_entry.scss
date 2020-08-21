@@ -1,5 +1,14 @@
 #main_entry {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  max-height: 30vh;
   background-image: radial-gradient($electricPurple, $electricViolet, $primaryBlue);
+  z-index: 2;
+
   .input {
     input {
       height: 40px;

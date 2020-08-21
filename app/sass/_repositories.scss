@@ -7,9 +7,9 @@
     margin: 0.625rem;
 
     select {
-      color: $primaryBlue;
+      color: $magentaProcess;
       font-size: inherit;
-      margin-left: 0.5rem;
+      margin-left: 1rem;
       border: none;
     }
   }
@@ -22,7 +22,11 @@
     margin: 2% 5%;
     border-radius: 0.3125rem;
     background: $primaryWhite;
-    box-shadow: 0rem 0rem 0.9375rem -0.625rem rgba(0, 0, 0, 0.75);
+    box-shadow: 0rem 0rem 1rem -0.625rem rgba(0, 0, 0, 0.75);
+
+    @include breakpoint-down(medium) {
+      box-shadow: 0rem 0rem 1.5rem -0.625rem rgba(0, 0, 0, 0.75);
+    }
 
     @include breakpoint-up(medium) {
       flex: 1 0 48%;

@@ -93,101 +93,29 @@
         </div>
       </section>
 
-      <!-- REpositories Section -->
+      <!-- Repositories Section -->
       <section id="repositories">
         <div class="title flex flex-row al-c">
           <h2>Top Repositories:</h2>
-          <select>
+          <select id="sort_by">
             <option value="name">Name</option>
             <option value="stars">Stars</option>
             <option value="forks">Forks</option>
+            <option value="size">Size</option>
           </select>
         </div>
-        <div id="repos-container" class="repos flex flex-row flex-wrap jc-c al-c">
-          <div class="card flex flex-col jc-sa">
-            <div class="card__header">
-              <a href="#"><h3 id="repository__name">Complimentr</h3></a>
-            </div>
-            <div class="card__content">
-              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-            <div class="card__footer flex flex-row jc-sb al-c">
-              <div class="repository__language flex jc-sb al-c">
-                <div id="repository__language-color"></div>
-                <span id="repository__language-name">HTML</span>
-              </div>
-              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
-            </div>
-          </div>
-          <div class="card flex flex-col jc-sa">
-            <div class="card__header">
-              <h3 id="repository__name">Complimentr</h3>
-            </div>
-            <div class="card__content">
-              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima perferendis aspernatur a similique ducimus accusantium molestias quisquam maiores, sed vitae facilis voluptatibus quod veritatis obcaecati quae? Cumque, facere aut.</p>
-            </div>
-            <div class="card__footer flex flex-row jc-sb al-c">
-              <div class="repository__language flex jc-sb al-c">
-                <div id="repository__language-color"></div>
-                <span id="repository__language-name">HTML</span>
-              </div>
-              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
-            </div>
-          </div>
-          <div class="card flex flex-col jc-sa">
-            <div class="card__header">
-              <h3 id="repository__name">Complimentr</h3>
-            </div>
-            <div class="card__content">
-              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima perferendis aspernatur a similique ducimus accusantium molestias quisquam maiores, sed vitae facilis voluptatibus quod veritatis obcaecati quae? Cumque, facere aut.</p>
-            </div>
-            <div class="card__footer flex flex-row jc-sb al-c">
-              <div class="repository__language flex jc-sb al-c">
-                <div id="repository__language-color"></div>
-                <span id="repository__language-name">HTML</span>
-              </div>
-              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
-            </div>
-          </div>
-          <div class="card flex flex-col jc-sa">
-            <div class="card__header">
-              <h3 id="repository__name">Complimentr</h3>
-            </div>
-            <div class="card__content">
-              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima perferendis aspernatur a similique ducimus accusantium molestias quisquam maiores, sed vitae facilis voluptatibus quod veritatis obcaecati quae? Cumque, facere aut.</p>
-            </div>
-            <div class="card__footer flex flex-row jc-sb al-c">
-              <div class="repository__language flex jc-sb al-c">
-                <div id="repository__language-color"></div>
-                <span id="repository__language-name">HTML</span>
-              </div>
-              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
-              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
-            </div>
-          </div>
-          <div class="card flex flex-col jc-sb">
-            <div class="card-header">
-              <h3 id="repository__name">Complimentr</h3>
-            </div>
-            <div class="card-content">
-              <p id="repository__description"></p>
-            </div>
-            <div class="card-footer flex flex-row jc-sb al-c">
-              <div class="language"><span id="repository__language-color"></span><span id="repository__language-color">HTML</span></div>
-              <div class="branches"><i class="fa fa-home"></i> <span id="repository__branches">1</span></div>
-              <div class="size"><span id="repository__size">1234</span> KB</div>
-            </div>
-          </div>
-        </div>
+        <div id="repos-container" class="repos flex flex-row flex-wrap jc-c al-c"></div>
       </section>
     </main>
+
+    <!-- input -->
+    <div id="main_entry" class="flex flex-row jc-c al-c">
+      <div class="input flex">
+        <input type="text" id="github_name" placeholder="Enter Username" />
+        <button id="search__btn" class="button">Search</button>
+      </div>
+      <script src="./app/js/script.js" type="module"></script>
+    </div>
 
     <!-- Footer section -->
     <footer>
