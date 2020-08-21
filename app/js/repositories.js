@@ -2907,11 +2907,11 @@ export default function (url, username, displayRequestsLimit) {
                   <div class="repository__language flex jc-sb al-c">
 
                     <div id="repository__language-color" style="border: 0.625rem solid ${!!repo.language ? colors[repo.language].color : "#fff"}"></div>
-                    <span id="repository__language-name"> ${!!repo.language ? repo.language : ""}</span>
+                    <h5><span id="repository__language-name"> ${!!repo.language ? repo.language : ""}</span><h5>
                   </div>
-                  <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">${repo.forks_count >= 0 ? repo.forks_count : ""}</span></div>
-                  <div class="repository__stars"><i class="far fa-star"></i> <span id="repository__stars">${repo.stargazers_count >= 0 ? repo.stargazers_count : ""}</span></div>
-                  <div class="repository__size"><span id="repository__size">${repo.size > 1024 ? (repo.size / 1024).toFixed(2) + " MB" : repo.size + " KB"}</span></div>
+                  <div class="repository__branches"><h5><i class="fas fa-code-branch"></i> <span id="repository__branches">${repo.forks_count >= 0 ? repo.forks_count : ""}</span></h5></div>
+                  <div class="repository__stars"><h5><i class="far fa-star"></i> <span id="repository__stars">${repo.stargazers_count >= 0 ? repo.stargazers_count : ""}</span></h5></div>
+                  <div class="repository__size"><h5><span id="repository__size">${repo.size > 1024 ? (repo.size / 1024).toFixed(2) + " MB" : repo.size + " KB"}</span></h5></div>
                 </div>
               </div>
               `;
