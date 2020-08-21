@@ -1,4 +1,4 @@
-export default function (url, username) {
+export default function (url, username, displayRequestsLimit) {
   const userObject = {
     login: "erickarugu32",
     id: 26389470,
@@ -34,9 +34,12 @@ export default function (url, username) {
     updated_at: "2020-08-18T07:52:04Z",
   };
 
-  const fetchUserInfo = async (username) => {
+  const fetchUserInfo = async (url, username) => {
     await fetch(`${url}/${username}`)
-      .then((data) => data.json())
+      .then((data) => {
+        displayRequestsLimit(data);
+        return data.json();
+      })
       .then((data) => displayUserGithubInfo(data));
   };
 
@@ -53,6 +56,7 @@ export default function (url, username) {
 
     var joinedDate = new Date(userObject.created_at);
 
+    // insert the user's info
     userGithubAvatar.src = userObject.avatar_url;
     userFullname.innerText = userObject.name;
     userUsername.innerText = `@${userObject.login}`;
@@ -64,4 +68,5 @@ export default function (url, username) {
     userFollowing.innerText = userObject.following;
   };
   displayUserGithubInfo(userObject);
+  // fetchUserInfo(url, username);
 }

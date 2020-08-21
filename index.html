@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="images/img_avatar.png" />
-    <title>Github Profile</title>
+    <title>GitoStats Profile</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -40,6 +40,10 @@
       <!-- header section -->
       <section id="section-header">
         <div class="header flex flex-col jc-c al-c">
+          <div id="requests_limit">
+            <h2><span id="req_remaining">00</span>/<span id="req_maximum">00</span></h2>
+            <p><small>Requests Remaining</small></p>
+          </div>
           <!-- github avatar image -->
           <div class="header__image-section flex flex-row jc-c al-c">
             <img id="user_avatar" src="./images/img_avatar.png" alt="Github Avatar Image" />
@@ -86,6 +90,101 @@
         </div>
         <div class="charts__piechart">
           <canvas id="pieChart" width="380" height="300" aria-label="Pie Chart" role="img">Your browser does not support the canvas element.</canvas>
+        </div>
+      </section>
+
+      <!-- REpositories Section -->
+      <section id="repositories">
+        <div class="title flex flex-row al-c">
+          <h2>Top Repositories:</h2>
+          <select>
+            <option value="name">Name</option>
+            <option value="stars">Stars</option>
+            <option value="forks">Forks</option>
+          </select>
+        </div>
+        <div id="repos-container" class="repos flex flex-row flex-wrap jc-c al-c">
+          <div class="card flex flex-col jc-sa">
+            <div class="card__header">
+              <a href="#"><h3 id="repository__name">Complimentr</h3></a>
+            </div>
+            <div class="card__content">
+              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="card__footer flex flex-row jc-sb al-c">
+              <div class="repository__language flex jc-sb al-c">
+                <div id="repository__language-color"></div>
+                <span id="repository__language-name">HTML</span>
+              </div>
+              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
+            </div>
+          </div>
+          <div class="card flex flex-col jc-sa">
+            <div class="card__header">
+              <h3 id="repository__name">Complimentr</h3>
+            </div>
+            <div class="card__content">
+              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima perferendis aspernatur a similique ducimus accusantium molestias quisquam maiores, sed vitae facilis voluptatibus quod veritatis obcaecati quae? Cumque, facere aut.</p>
+            </div>
+            <div class="card__footer flex flex-row jc-sb al-c">
+              <div class="repository__language flex jc-sb al-c">
+                <div id="repository__language-color"></div>
+                <span id="repository__language-name">HTML</span>
+              </div>
+              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
+            </div>
+          </div>
+          <div class="card flex flex-col jc-sa">
+            <div class="card__header">
+              <h3 id="repository__name">Complimentr</h3>
+            </div>
+            <div class="card__content">
+              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima perferendis aspernatur a similique ducimus accusantium molestias quisquam maiores, sed vitae facilis voluptatibus quod veritatis obcaecati quae? Cumque, facere aut.</p>
+            </div>
+            <div class="card__footer flex flex-row jc-sb al-c">
+              <div class="repository__language flex jc-sb al-c">
+                <div id="repository__language-color"></div>
+                <span id="repository__language-name">HTML</span>
+              </div>
+              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
+            </div>
+          </div>
+          <div class="card flex flex-col jc-sa">
+            <div class="card__header">
+              <h3 id="repository__name">Complimentr</h3>
+            </div>
+            <div class="card__content">
+              <p id="repository__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus minima perferendis aspernatur a similique ducimus accusantium molestias quisquam maiores, sed vitae facilis voluptatibus quod veritatis obcaecati quae? Cumque, facere aut.</p>
+            </div>
+            <div class="card__footer flex flex-row jc-sb al-c">
+              <div class="repository__language flex jc-sb al-c">
+                <div id="repository__language-color"></div>
+                <span id="repository__language-name">HTML</span>
+              </div>
+              <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__branches"><i class="far fa-star"></i> <span id="repository__branches">1</span></div>
+              <div class="repository__size"><span id="repository__size">1234</span> KB</div>
+            </div>
+          </div>
+          <div class="card flex flex-col jc-sb">
+            <div class="card-header">
+              <h3 id="repository__name">Complimentr</h3>
+            </div>
+            <div class="card-content">
+              <p id="repository__description"></p>
+            </div>
+            <div class="card-footer flex flex-row jc-sb al-c">
+              <div class="language"><span id="repository__language-color"></span><span id="repository__language-color">HTML</span></div>
+              <div class="branches"><i class="fa fa-home"></i> <span id="repository__branches">1</span></div>
+              <div class="size"><span id="repository__size">1234</span> KB</div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

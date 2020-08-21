@@ -1,0 +1,58 @@
+#repositories {
+  @include breakpoint-up(medium) {
+    padding: 1.25rem;
+  }
+
+  .title {
+    margin: 0.625rem;
+
+    select {
+      color: $primaryBlue;
+      font-size: inherit;
+      margin-left: 0.5rem;
+      border: none;
+    }
+  }
+}
+.repos {
+  .card {
+    width: 100%;
+    align-self: stretch;
+    padding: 1rem;
+    margin: 2% 5%;
+    border-radius: 0.3125rem;
+    box-shadow: 0rem 0rem 0.9375rem -0.625rem rgba(0, 0, 0, 0.75);
+
+    @include breakpoint-up(medium) {
+      flex: 1 0 48%;
+      max-width: 48%;
+      margin: 1%;
+    }
+    @include breakpoint-up(large) {
+      flex: 1 0 30%;
+      max-width: 30%;
+      margin-left: 1%;
+    }
+
+    &__header {
+      padding-top: 0.3125rem;
+      padding-bottom: 0.625rem;
+    }
+    &__content {
+      max-height: 3.75rem;
+      overflow: hidden;
+    }
+    &__footer {
+      font-size: 1.25rem;
+      padding-top: 0.9375rem;
+      padding-bottom: 0.125rem;
+
+      #repository__language-color {
+        max-width: 1.25rem;
+        max-height: 1.25rem;
+        border: 0.625rem solid $primaryBlue;
+        border-radius: 50%;
+      }
+    }
+  }
+}

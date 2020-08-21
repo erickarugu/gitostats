@@ -52,6 +52,11 @@ a:focus {
   text-decoration: none;
   color: $primaryBlue;
 }
+select:active,
+select:focus {
+  border: none;
+  outline: none;
+}
 body {
   position: relative;
   min-height: 100vh;
@@ -82,7 +87,10 @@ body {
   }
   &.flex-row {
     flex-direction: row;
-    flex-wrap: nowrap;
+  }
+  &.flex-wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   &.jc-c {
     justify-content: center;
@@ -91,7 +99,7 @@ body {
     justify-content: space-around;
   }
   &.jc-sb {
-    justify-content: space-beteen;
+    justify-content: space-between;
   }
   &.al-c {
     align-items: center;

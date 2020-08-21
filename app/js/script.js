@@ -1,7 +1,24 @@
-import renderCharts from "./charts.js";
 import displayUserInfo from "./profile.js";
+import renderCharts from "./charts.js";
+import displayRepositories from "./repositories.js";
 
-const APIURL = "https://api.github.com/users/";
+var username = "daniel";
+const APIURL = "https://api.github.com/users";
+
+const displayRequestsLimit = (data) => {
+  const requestsMaximum = document.querySelector("#req_maximum");
+  const requestsRemaining = document.querySelector("#req_remaining");
+
+  for (var pair of data.headers.entries()) {
+    console.log(pair[0] + ": " + pair[1]);
+    if (pair[0] === "x-ratelimit-limit") {
+      requestsMaximum.innerText = pair[1];
+    }
+    if (pair[0] === "x-ratelimit-remaining") {
+      requestsRemaining.innerText = pair[1];
+    }
+  }
+};
 
 const hideLoader = (e) => {
   setTimeout(() => {
@@ -12,7 +29,9 @@ const hideLoader = (e) => {
 };
 
 window.onload = (e) => {
-  displayUserInfo(APIURL, "erickarugu32");
-  renderCharts(APIURL, "erickarugu32");
+  document.title = "GitoStats | Eric Karugu";
+  displayUserInfo(APIURL, username, displayRequestsLimit);
+  renderCharts(APIURL, username, displayRequestsLimit);
+  displayRepositories(APIURL, username, displayRequestsLimit);
   hideLoader();
 };

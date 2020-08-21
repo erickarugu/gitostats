@@ -2851,189 +2851,72 @@ export default function (url, username, displayRequestsLimit) {
       default_branch: "master",
     },
   ];
+  let colors = {};
+  const sortRepos = (reposArray, sortBy, reposLimit) => {
+    let arr = [...reposArray];
 
-  const counts = {};
-  const colors = {};
-  const languageStarsCount = {};
-  const repositorySize = [];
-  const repos = [];
-
-  const fetchUserRepositories = async (url, username) => {
-    await fetch(`${url}/${username}/repos`)
-      .then((data) => {
-        displayRequestsLimit(data);
-        return data.json();
-      })
-      .then((reposObj) => {
-        reposObj.forEach((el) => {
-          if (el.language !== null) {
-            counts[el.language] = counts[el.language] ? counts[el.language] + 1 : 1;
-            languageStarsCount[el.language] = languageStarsCount[el.language] ? languageStarsCount[el.language] + el.stargazers_count : el.stargazers_count;
-          }
-          if (el.name) {
-            repos.push(el.size);
-          }
+    if (sortBy) {
+      if (sortBy === "stars") {
+        arr.sort((a, b) => {
+          return a.stargazers_count < b.stargazers_count ? 1 : -1;
         });
-
-        const maxSize = Math.max(...repos);
-        const minSize = Math.min(...repos);
-        reposObj.forEach((el) => {
-          if (el.name) {
-            repositorySize[repositorySize.length] = {
-              x: (el.size * 20) / (maxSize - minSize),
-              y: (el.size * 20) / (maxSize - minSize),
-              r: (el.size * 20) / (maxSize - minSize),
-            };
-          }
+      } else if (sortBy === "name") {
+        arr.sort((a, b) => {
+          return a.name > b.name ? 1 : -1;
         });
-
-        fetchLanguagesColors();
-      });
+      } else if (sortBy === "forks") {
+        arr.sort((a, b) => {
+          return a.forks_count < b.forks_count ? 1 : -1;
+        });
+      } else if (sortBy === "size") {
+        arr.sort((a, b) => {
+          return a.size < b.size ? 1 : -1;
+        });
+      }
+    }
+    if (arr.length > 0 && reposLimit && arr.length > reposLimit) {
+      arr.length = reposLimit;
+    }
+    if (arr.length > 0) fetchLanguagesColors(arr);
   };
-
-  userRepositoriesObject.forEach((el) => {
-    if (el.language !== null) {
-      counts[el.language] = counts[el.language] ? counts[el.language] + 1 : 1;
-      languageStarsCount[el.language] = languageStarsCount[el.language] ? languageStarsCount[el.language] + el.stargazers_count : el.stargazers_count;
-    }
-    if (!!el.name) {
-      repos.push(el.size);
-    }
-  });
-
-  const maxSize = Math.max(...repos);
-  const minSize = Math.min(...repos);
-
-  userRepositoriesObject.forEach((el) => {
-    if (el.name) {
-      repositorySize[repositorySize.length] = {
-        x: (el.size * 20) / (maxSize - minSize),
-        y: (el.size * 20) / (maxSize - minSize),
-        r: (el.size * 20) / (maxSize - minSize),
-      };
-    }
-  });
-
-  const fetchLanguagesColors = async () => {
+  const fetchLanguagesColors = async (arr) => {
     await fetch("colors.json")
       .then((data) => data.json())
       .then((data) => {
-        Object.keys(counts).map((language) => {
-          Object.keys(data).forEach((key) => {
-            if (key === language) {
-              colors[key] = data[language].color;
-            }
-          });
-        });
-        renderAllCharts();
+        displayRepos(arr, data);
       });
   };
 
-  const renderAllCharts = () => {
-    renderBarGraph();
-    renderScatterPlotGraph();
-    renderPieChart();
-  };
+  const displayRepos = (repos, colors) => {
+    console.log(colors);
+    const reposContainer = document.querySelector("#repos-container");
 
-  const renderScatterPlotGraph = () => {
-    const scatter = document.getElementById("scatterChart").getContext("2d");
-    const scatterChart = new Chart(scatter, {
-      type: "bubble",
-      data: {
-        datasets: [
-          {
-            data: repositorySize,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        title: {
-          display: true,
-          text: "Repository Sizes",
-        },
-        legend: {
-          display: false,
-        },
-        scales: {
-          xAxes: [
-            {
-              type: "linear",
-              position: "bottom",
-            },
-          ],
-        },
-      },
-    });
-  };
-  const renderBarGraph = () => {
-    const bar = document.getElementById("barChart").getContext("2d");
-    const myChart = new Chart(bar, {
-      type: "bar",
-      data: {
-        labels: Object.keys(languageStarsCount),
-        datasets: [
-          {
-            data: Object.values(languageStarsCount),
-            backgroundColor: Object.values(colors),
-            borderColor: Object.values(colors),
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        title: {
-          display: true,
-          text: "Top Languages by Stars",
-        },
-        legend: {
-          display: false,
-        },
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
-              },
-            },
-          ],
-        },
-      },
-    });
-  };
-  const renderPieChart = () => {
-    const pie = document.getElementById("pieChart").getContext("2d");
-    const myChart = new Chart(pie, {
-      type: "doughnut",
-      data: {
-        labels: Object.keys(counts),
-        datasets: [
-          {
-            data: Object.values(counts),
-            borderColor: Object.values(colors),
-            backgroundColor: Object.values(colors),
-          },
-        ],
-      },
-      options: {
-        responsive: true,
-        title: {
-          display: true,
-          text: "Popular Languages",
-        },
-        legend: {
-          display: true,
-          position: "right",
-          align: "start",
-          labels: {
-            fontFamily: "Open Sans",
-          },
-        },
-      },
-    });
-  };
+    reposContainer.innerHTML = repos
+      .map((repo) => {
+        return `
+            <div class="card flex flex-col jc-sa">
+                <div class="card__header">
+                <a href="${!!repo.html_url ? repo.html_url : ""}" title="${!!repo.name ? repo.name : ""}" target="_blank">
+                  <h3 id="repository__name">${!!repo.name ? repo.name : ""}</h3>
+                  </a>
+                </div>
+                <div class="card__content">
+                  <p id="repository__description">${!!repo.language ? repo.description : ""}</p>
+                </div>
+                <div class="card__footer flex flex-row jc-sb al-c">
+                  <div class="repository__language flex jc-sb al-c">
 
-  // fetchUserRepositories(url, username, displayRequestsLimit);
-  fetchLanguagesColors();
+                    <div id="repository__language-color" style="border: 0.625rem solid ${!!repo.language ? colors[repo.language].color : "#fff"}"></div>
+                    <span id="repository__language-name"> ${!!repo.language ? repo.language : ""}</span>
+                  </div>
+                  <div class="repository__branches"><i class="fas fa-code-branch"></i> <span id="repository__branches">${repo.forks_count >= 0 ? repo.forks_count : ""}</span></div>
+                  <div class="repository__stars"><i class="far fa-star"></i> <span id="repository__stars">${repo.stargazers_count >= 0 ? repo.stargazers_count : ""}</span></div>
+                  <div class="repository__size"><span id="repository__size">${repo.size > 1024 ? (repo.size / 1024).toFixed(2) + " MB" : repo.size + " KB"}</span></div>
+                </div>
+              </div>
+              `;
+      })
+      .join("");
+  };
+  sortRepos(userRepositoriesObject, "forks", 12);
 }
