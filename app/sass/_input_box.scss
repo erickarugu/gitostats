@@ -1,6 +1,6 @@
 #main_entry {
-  // display: none;
   position: fixed;
+  width: 45%;
   top: 0;
   right: 25%;
   left: 25%;
@@ -14,6 +14,7 @@
   transition: all 300ms ease-in-out;
 
   @include breakpoint-down(medium) {
+    width: 100%;
     right: 0%;
     left: 0%;
   }

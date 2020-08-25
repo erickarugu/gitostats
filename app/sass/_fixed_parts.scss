@@ -33,9 +33,13 @@
   top: 40%;
   left: 0;
   background: $electricPurple;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  box-shadow: 0rem 0rem 1.5rem -0.625rem rgba(0, 0, 0, 0.75);
   opacity: 0.5;
+
   > a {
-    padding: 0.2rem;
+    padding: 0.5rem 0.2rem;
     color: unset;
 
     .fab {
@@ -54,6 +58,7 @@
 // overlay
 .overlay {
   position: fixed;
+  width: 100vw;
   top: 0;
   bottom: 0;
   left: 0;
