@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" integrity="sha512-QEiC894KVkN9Tsoi6+mKf8HaCLJvyA6QIRzY5KrfINXYuP9NxdIkRQhGq3BZi0J4I7V5SidGM3XUQ5wFiMDuWg==" crossorigin="anonymous"></script>
   </head>
   <body>
+    <div id="overlay" class="overlay"></div>
     <!-- loader -->
     <div class="box flex jc-c al-c">
       <div class="loader-39"></div>
@@ -35,6 +36,8 @@
         <i class="fab fa-twitter"></i>
       </a>
     </div>
+
+    <!-- search user toggler -->
 
     <main>
       <!-- header section -->
@@ -57,23 +60,23 @@
 
           <!-- personal details -->
           <div class="header__details-section flex flex-row jc-sa">
-            <div><i class="fas fa-briefcase"></i> <span id="user_work">Freelance</span></div>
-            <div><i class="fas fa-map-marker-alt"></i> <span id="user_location">Nairobi, Kenya</span></div>
-            <div><i class="fa fa-calendar-alt"></i> <span id="user_join-date">March 13, 2020.</span></div>
+            <div id="user_work"><i class="fas fa-briefcase"></i> <span>Work</span></div>
+            <div id="user_location"><i class="fas fa-map-marker-alt"></i> <span>Somewhere, Globe</span></div>
+            <div id="user_join-date"><i class="fa fa-calendar-alt"></i> <span>January 01, 0000.</span></div>
           </div>
 
           <!-- Personal stats -->
           <div class="header__stats-section flex flex-row jc-sa">
             <div class="stats flex flex-col al-c jc-sb">
-              <h3 id="user_repos">27</h3>
+              <h3 id="user_repos">00</h3>
               <p>Repositories</p>
             </div>
             <div class="stats flex flex-col al-c jc-sb">
-              <h3 id="user_followers">101</h3>
+              <h3 id="user_followers">00</h3>
               <p>Followers</p>
             </div>
             <div class="stats flex flex-col al-c jc-sb">
-              <h3 id="user_following">60</h3>
+              <h3 id="user_following">00</h3>
               <p>Following</p>
             </div>
           </div>
@@ -81,7 +84,7 @@
       </section>
 
       <!-- Charts Section -->
-      <section class="charts flex flex-row jc-sa">
+      <section class="charts flex flex-row flex-wrap jc-c al-c">
         <div class="charts__bargraph">
           <canvas id="barChart" width="380" height="300" aria-label="Bar Graph" role="img">Your browser does not support the canvas element.</canvas>
         </div>
@@ -114,17 +117,19 @@
         <input type="text" id="github_name" placeholder="Enter Username" />
         <button id="search__btn" class="button">Search</button>
       </div>
-      <script src="./app/js/script.js" type="module"></script>
+      <!-- <div class="close-icon">
+        <i class="fa fa-2x fa-window-close"></i>
+      </div> -->
     </div>
 
     <!-- Footer section -->
     <footer>
       <p>
-        Created using <a href="#">Vanilla JS</a>, <a href="#">Chartjs</a>, <a href="#">GitHub API</a> and <i class="fas fa-heart"></i> by
-        <a href="https://erickarugu.com">Eric</a>
+        Created using Vanilla JS, <a href="https://www.chartjs.org/" target="_blank" title="Chartjs Website">Chartjs</a>, <a href="https://developer.github.com/v3/" target="_blank" title="GitHub API Documentation">GitHub API</a> and <i class="fas fa-heart"></i> by
+        <a href="https://erickarugu.com" target="_blank" title="Eric website">Eric</a>
       </p>
       <p>
-        <small> Inspired by <a href="https://brittanychiang.com/">Brittany Chiang</a>'s - <a href="https://octoprofile.now.sh/">OctoProfile</a> </small>
+        <small> Inspired by <a href="https://brittanychiang.com/" target="_blank" title="Brittany Chiang Website">Brittany Chiang</a>'s - <a href="https://octoprofile.now.sh/" target="_blank" title="OctoProfile">OctoProfile</a> </small>
       </p>
       <p><small>&copy; 2020</small></p>
     </footer>

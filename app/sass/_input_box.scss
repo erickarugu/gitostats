@@ -1,0 +1,81 @@
+#main_entry {
+  // display: none;
+  position: fixed;
+  top: 0;
+  right: 25%;
+  left: 25%;
+  bottom: 0;
+  max-height: 20vh;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background: $primaryGray;
+  box-shadow: 0rem 0rem 1.5rem -0.625rem rgba(0, 0, 0, 0.75);
+  z-index: 2;
+  transition: all 300ms ease-in-out;
+
+  @include breakpoint-down(medium) {
+    right: 0%;
+    left: 0%;
+  }
+
+  &.closed {
+    margin-top: -40vh;
+  }
+
+  .input {
+    input {
+      height: 2.5rem;
+      width: 12.5rem;
+      text-align: center;
+      border: 0.125rem solid $magentaProcess;
+      border-radius: 1.25rem;
+      background: transparent;
+      transition: all 300ms ease-in-out;
+
+      &:focus {
+        border: 0.125rem solid $primaryBlue;
+
+        &::placeholder {
+          color: $primaryBlue;
+        }
+      }
+
+      &::placeholder {
+        color: $magentaProcess;
+      }
+    }
+
+    .button {
+      width: 6.25rem;
+      margin-left: 0.5rem;
+      font-size: 1rem;
+      color: $primaryWhite;
+      border: none;
+      border-radius: 1.25rem;
+      background: $magentaProcess;
+      cursor: pointer;
+      box-shadow: 0rem 0rem 1.5rem -0.625rem rgba(0, 0, 0, 0.75);
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        opacity: 0.8;
+        background: $primaryBlue;
+      }
+    }
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    .fa {
+      color: $fashionFuschia;
+    }
+  }
+}

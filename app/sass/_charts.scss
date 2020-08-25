@@ -1,42 +1,33 @@
 .charts {
-  @include breakpoint-down(medium) {
-    margin: 20px;
-    overflow: auto;
+  width: 100%;
+  padding: 1.25rem;
 
-    &::before {
-      content: " ";
-      min-width: 400px !important;
-    }
-  }
-  @include breakpoint-down(small) {
-    &::before {
-      content: " ";
-      min-width: 600px !important;
-    }
-  }
-  @include breakpoint-down(xsmall) {
-    &::before {
-      content: " ";
-      min-width: 700px !important;
-    }
-  }
   > div {
-    padding: 10px;
-    margin-top: -40px;
+    width: 98%;
+    padding: 1%;
+    margin: 2% 5%;
+    border-radius: 0.125rem;
     background: $primaryWhite;
-    border-radius: 2px;
     box-shadow: 0rem 0rem 0.9375rem -0.625rem rgba(0, 0, 0, 0.75);
 
-    @include breakpoint-down(medium) {
-      min-width: 360px;
-      margin: 20px;
+    @include breakpoint-up(medium) {
+      flex: 1 0 48%;
+      max-width: 48%;
+      margin: 1%;
 
-      &:not(:last-child) {
-        margin-right: 0.5rem;
+      &:last-child {
+        margin-right: 51%;
       }
     }
-    @include breakpoint-down(small) {
-      min-width: 300px;
+    @include breakpoint-up(large) {
+      flex: 1 0 30%;
+      max-width: 30%;
+      margin-left: 1%;
+      margin-top: -2.5rem;
+
+      &:last-child {
+        margin-right: 1%;
+      }
     }
   }
 }

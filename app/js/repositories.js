@@ -1,4 +1,5 @@
 export default function (reposObject, sortBy, reposLimit) {
+  // function to sort the repos and call the fetchLanguagesCols passing down the sorted repos object to it in the process
   const sortRepos = (reposArray, sortBy, reposLimit) => {
     let arr = [...reposArray];
 
@@ -27,6 +28,7 @@ export default function (reposObject, sortBy, reposLimit) {
     if (arr.length > 0) fetchLanguagesColors(arr);
   };
 
+  // function to fetch the languages from the local json file and pass the returned objecy to the display repos function
   const fetchLanguagesColors = async (arr) => {
     await fetch("colors.json")
       .then((data) => data.json())
@@ -35,6 +37,7 @@ export default function (reposObject, sortBy, reposLimit) {
       });
   };
 
+  // function to display the repos info on the page
   const displayRepos = (repos, colors) => {
     const reposContainer = document.querySelector("#repos-container");
 
@@ -43,8 +46,8 @@ export default function (reposObject, sortBy, reposLimit) {
         return `
             <div class="card flex flex-col jc-sa">
                 <div class="card__header">
-                <a href="${!!repo.html_url ? repo.html_url : ""}" title="${!!repo.name ? repo.name : ""}" target="_blank">
-                  <h3 id="repository__name">${!!repo.name ? repo.name : ""}</h3>
+                  <a href="${!!repo.html_url ? repo.html_url : ""}" title="${!!repo.name ? repo.name : ""}" target="_blank">
+                    <h3 id="repository__name">${!!repo.name ? repo.name : ""}</h3>
                   </a>
                 </div>
                 <div class="card__content">
@@ -65,5 +68,7 @@ export default function (reposObject, sortBy, reposLimit) {
       })
       .join("");
   };
+
+  // invoke the function to sort the repos and later call the fetch languages function
   sortRepos(reposObject, sortBy, reposLimit);
 }

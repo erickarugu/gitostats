@@ -20,6 +20,31 @@
     background: linear-gradient(45deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
     box-shadow: 0rem 0rem 1.5rem -0.5625rem rgba(255, 255, 255, 0.75);
     transition: background 2s ease-in-out;
+    animation: rotate-background 10s linear infinite;
+
+    @keyframes rotate-background {
+      0% {
+        background: linear-gradient(45deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+      18% {
+        background: linear-gradient(90deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+      36% {
+        background: linear-gradient(135deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+      50% {
+        background: linear-gradient(180deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+      68% {
+        background: linear-gradient(225deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+      86% {
+        background: linear-gradient(270deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+      100% {
+        background: linear-gradient(360deg, $primaryWhite, $magentaProcess, $electricIndigo, $electricPurple, $primaryWhite);
+      }
+    }
 
     img {
       width: 9.375rem;

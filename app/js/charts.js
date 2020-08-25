@@ -5,6 +5,7 @@ export default function (reposObj) {
   const repositorySize = [];
   const repos = [];
 
+  // loop through the repositories array
   reposObj.forEach((el) => {
     if (el.language !== null) {
       counts[el.language] = counts[el.language] ? counts[el.language] + 1 : 1;
@@ -17,6 +18,7 @@ export default function (reposObj) {
 
   const maxSize = Math.max(...repos);
   const minSize = Math.min(...repos);
+  // loop over the repos array
   reposObj.forEach((el) => {
     if (el.name) {
       repositorySize[repositorySize.length] = {
@@ -27,6 +29,7 @@ export default function (reposObj) {
     }
   });
 
+  // fetch languages from the local json file and invoke the function to render all charts
   const fetchLanguagesColors = async () => {
     await fetch("colors.json")
       .then((data) => data.json())
@@ -42,12 +45,14 @@ export default function (reposObj) {
       });
   };
 
+  // render all charts on the page
   const renderAllCharts = () => {
     renderBarGraph();
     renderScatterPlotGraph();
     renderPieChart();
   };
 
+  // Scatter plot graph
   const renderScatterPlotGraph = () => {
     const scatter = document.getElementById("scatterChart").getContext("2d");
     const scatterChart = new Chart(scatter, {
@@ -63,7 +68,7 @@ export default function (reposObj) {
         responsive: true,
         title: {
           display: true,
-          text: "Repository Sizes",
+          text: "Repository Sizes Comparison",
         },
         legend: {
           display: false,
@@ -79,6 +84,8 @@ export default function (reposObj) {
       },
     });
   };
+
+  //Bar Graph
   const renderBarGraph = () => {
     const bar = document.getElementById("barChart").getContext("2d");
     const myChart = new Chart(bar, {
@@ -115,6 +122,8 @@ export default function (reposObj) {
       },
     });
   };
+
+  // Pie Chart
   const renderPieChart = () => {
     const pie = document.getElementById("pieChart").getContext("2d");
     const myChart = new Chart(pie, {

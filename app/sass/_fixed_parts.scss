@@ -4,7 +4,7 @@
   right: -3.4375rem;
   top: -2.1875rem;
   transform: rotate(45deg);
-  background-color: $primaryWhite;
+  background-color: $primaryGray;
   transition: background 200ms ease-in-out;
 
   @include breakpoint-down(xsmall) {
@@ -49,4 +49,14 @@
       }
     }
   }
+}
+
+// overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
 }

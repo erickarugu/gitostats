@@ -4,7 +4,8 @@
   }
 
   .title {
-    margin: 0.625rem;
+    margin: 2%;
+    padding: 1rem;
 
     select {
       color: $magentaProcess;
@@ -42,6 +43,13 @@
     &__header {
       padding-top: 0.3125rem;
       padding-bottom: 0.625rem;
+
+      a {
+        transition: color 300ms ease-in-out;
+        &:hover {
+          color: $magentaProcess;
+        }
+      }
     }
     &__content {
       max-height: 3.75rem;

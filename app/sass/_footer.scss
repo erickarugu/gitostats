@@ -3,4 +3,8 @@ footer {
   margin-top: 2rem;
   text-align: center;
   background: $primaryWhite;
+
+  .fas {
+    color: $magentaProcess;
+  }
 }

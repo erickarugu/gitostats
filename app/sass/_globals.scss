@@ -20,30 +20,7 @@ p {
   font-weight: 300;
   font-size: 1rem;
 }
-// @include breakpoint-down(small) {
-//   h1,
-//   h2,
-//   h3,
-//   h4,
-//   h5 {
-//     font-size: 95%;
-//   }
-//   p {
-//     font-size: 90%;
-//   }
-// }
-// @include breakpoint-down(xsmall) {
-//   h1,
-//   h2,
-//   h3,
-//   h4,
-//   h5 {
-//     font-size: 90%;
-//   }
-//   p {
-//     font-size: 85%;
-//   }
-// }
+
 a,
 a:visited,
 a:hover,
@@ -51,6 +28,12 @@ a:active,
 a:focus {
   text-decoration: none;
   color: $primaryBlue;
+}
+button:active,
+button:focus,
+input:focus,
+input:active {
+  outline: none;
 }
 select:active,
 select:focus {
