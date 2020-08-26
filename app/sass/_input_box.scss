@@ -26,7 +26,7 @@
   .input {
     input {
       height: 2.5rem;
-      width: 12.5rem;
+      width: 13.5rem;
       text-align: center;
       border: 0.125rem solid $magentaProcess;
       border-radius: 1.25rem;
@@ -43,6 +43,7 @@
 
       &::placeholder {
         color: $magentaProcess;
+        opacity: 0.5;
       }
     }
 
