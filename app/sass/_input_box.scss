@@ -1,13 +1,12 @@
 #main_entry {
   position: fixed;
   width: 45%;
-  top: 0;
-  right: 25%;
+  height: 20vh;
+  top: 40%;
   left: 25%;
+  right: 25%;
   bottom: 0;
-  max-height: 20vh;
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-radius: 0.5rem;
   background: $primaryGray;
   box-shadow: 0rem 0rem 1.5rem -0.625rem rgba(0, 0, 0, 0.75);
   z-index: 2;
@@ -15,12 +14,22 @@
 
   @include breakpoint-down(medium) {
     width: 100%;
-    right: 0%;
-    left: 0%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    &.closed {
+      opacity: 0;
+      margin: 0;
+      animation: fade-out 500ms linear forwards;
+    }
   }
 
-  &.closed {
-    margin-top: -40vh;
+  @include breakpoint-up(medium) {
+    &.closed {
+      margin-top: -60vh;
+    }
   }
 
   .input {
@@ -79,5 +88,18 @@
     .fa {
       color: $fashionFuschia;
     }
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    display: none;
   }
 }

@@ -62,7 +62,7 @@ export default function (userObject) {
     inputBox.classList.remove("closed");
 
     //alert the user about the error
-    window.alert("Unknown GitHub User!");
+    window.alert("Unknown GitHub UserWW!");
 
     // add the overlay
     overlay.style.display = "block";
