@@ -6,7 +6,6 @@
   left: 25%;
   right: 25%;
   bottom: 0;
-  border-radius: 0.5rem;
   background: $primaryGray;
   box-shadow: 0rem 0rem 1.5rem -0.625rem rgba(0, 0, 0, 0.75);
   z-index: 2;
@@ -29,6 +28,7 @@
   @include breakpoint-up(medium) {
     &.closed {
       margin-top: -60vh;
+      border-radius: 0.5rem;
     }
   }
 
