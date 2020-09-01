@@ -86,7 +86,7 @@ const fetchUserInfo = async (url, username) => {
 
 const hideLoader = () => {
   setTimeout(() => {
-    const loader = document.querySelector(".box");
+    const loader = document.querySelector("#box");
     // enable scrolling on the Y axis
     document.body.style.overflowY = "scroll";
     loader.style.display = "none";

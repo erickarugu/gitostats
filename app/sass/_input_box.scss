@@ -21,7 +21,7 @@
     &.closed {
       opacity: 0;
       margin: 0;
-      animation: fade-out 500ms linear forwards;
+      display: none;
     }
   }
 
@@ -88,18 +88,5 @@
     .fa {
       color: $fashionFuschia;
     }
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 0;
-    display: none;
   }
 }
